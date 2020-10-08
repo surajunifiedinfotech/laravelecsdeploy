@@ -1,0 +1,20 @@
+FROM php:7.4-fpm
+
+RUN apt update
+RUN apt install apache2 -y
+RUN apt install -y libapache2-mod-php php7.4-mysql
+
+
+#FROM fauria/lamp
+
+WORKDIR /var/www/html/laravel
+
+
+ADD . .
+
+#RUN cat 000-default.conf > /etc/apache2/sites-available/000-default.conf
+
+RUN chgrp -R www-data /var/www/html/laravel
+RUN chmod -R 775 /var/www/html/laravel/storage
+
+#RUN service apache2 start
