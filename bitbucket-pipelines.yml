@@ -11,6 +11,8 @@ pipelines:
       - step:
           name: Build and test
           image: ubuntu:latest
+          script:
+            - echo "No test added"
       - step:
           trigger: manual # uncomment to have a manual step
           # set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
